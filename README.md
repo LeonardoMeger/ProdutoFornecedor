@@ -1,6 +1,6 @@
 # ProdutoFornecedor
 
-Este é um projeto web MVC desenvolvido com C#,.NET 6 e Entity Framework Core para demonstrar boas práticas de desenvolvimento web para o teste tecnico.
+Este é um projeto web MVC desenvolvido com C#, .NET 6 e Entity Framework Core para demonstrar boas práticas de desenvolvimento web para o teste tecnico.
 
 Pré-requisitos
 Certifique-se de ter o seguinte software instalados:
