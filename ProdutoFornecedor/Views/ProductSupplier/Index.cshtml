@@ -1,0 +1,38 @@
+﻿@model List<ProductSupplierModel>
+@{
+    ViewData["Title"] = "Pagina do Produto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem Vindo a pagina do Produto/Fornecedor</h1>
+    <table class="table table-dark table-responsive-md" id="tableProducts">
+        <thead>
+            <tr>
+                <th scope="col">Id do Produto</th>
+                <th scope="col">Nome do roduto</th>
+                <th scope="col">Descricao do produto</th>
+                <th scope="col">Preco</th>
+                <th scope="col">Id do fornecedor</th>
+                <th scope="col">Nome do fornecedor</th>
+                <th scope="col">Telefone do fornecedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ProductSupplierModel productSupplier in Model)
+                {
+                    <tr>
+                        <td>@productSupplier.Produto.Id</td>
+                        <td>@productSupplier.Produto.Nome</td>
+                        <td>@productSupplier.Produto.Descricao</td>
+                        <td>@productSupplier.Produto.Preco</td>
+                        <td>@productSupplier.Fornecedor.Id</td>
+                        <td>@productSupplier.Fornecedor.Nome</td>
+                        <td>@productSupplier.Fornecedor.Telefone</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,17 @@
+﻿@model SupplierModel
+@{
+    ViewData["Title"] = "Deletar Fornecedor";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Deletar fornecedor</h1>
+
+</div>
+
+<div class="text-center">
+    <h3>Deseja realmente apagar o fonecedor (@Model.Nome)?</h3>
+</div>
+
+<a class="btn btn-primary" role="button" asp-asp-controller="Supplier" asp-action="Index">Cancelar exclusão</a>
+<a class="btn btn-danger" role="button" asp-asp-controller="Supplier" asp-action="DeleteConfirmed" asp-route-id="@Model.Id">Confirmar exclusão</a>

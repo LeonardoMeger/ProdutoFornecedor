@@ -1,0 +1,59 @@
+﻿@model List<SupplierModel>
+@{
+    ViewData["Title"] = "Pagina do Fornecedor";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Supplier" asp-action="Create">Adicionar Fornecedor</a>
+    </div>
+    <br>
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+    <br>
+    <h1 class="display-4">Pagina do fornecedor</h1>
+    <table class="table table-dark table-responsive-md" id="tableSuppliers">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (SupplierModel suppliers in Model)
+                {
+                    <tr>
+                        <th scope="row">@suppliers.Id</th>
+                        <td>@suppliers.Nome</td>
+                        <td>@suppliers.Telefone</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Exemplo básico">
+                                <a role="button" asp-action="Edit" asp-controller="Supplier" asp-route-id="@suppliers.Id" class="btn btn-secondary">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-controller="Supplier" asp-action="Delete" asp-route-id="@suppliers.Id">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
